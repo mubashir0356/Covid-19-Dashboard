@@ -1,0 +1,79 @@
+.search-result-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 15px;
+  padding-left: 40px;
+  padding-right: 16px;
+  padding-bottom: 15px;
+  border-bottom: 0.3px solid #64748b;
+}
+
+@media screen and (min-width: 768px) {
+  .search-result-item {
+    padding-left: 50px;
+    padding-right: 24px;
+  }
+}
+
+.link-search {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.search-result-item-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #64748b;
+  margin: 0px;
+}
+
+.state-code-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 6px;
+  width: 76px;
+  height: 32px;
+  background: rgba(28, 212, 212, 0.16);
+  border-radius: 4px;
+}
+
+.state-code {
+  font-family: 'HK Grotesk';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 16px;
+  color: #facc15;
+  margin-right: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-code {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.state-code-icon {
+  color: #facc15;
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-code-icon {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.active-state {
+  background: #1f1f30;
+  border: 1px solid #94a3b8;
+}
