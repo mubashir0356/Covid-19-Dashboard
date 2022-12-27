@@ -2,12 +2,15 @@ import {Route, Switch, Redirect} from 'react-router-dom'
 
 import Home from './components/Home'
 
+import SpecificState from './components/SpecificState'
+
 import './App.css'
 
 const App = () => (
   <>
     <Switch>
-      <Route path="/" component={Home} />
+      <Route exact path="/" component={Home} />
+      <Route exact path="/state/:stateCode" component={SpecificState} />
     </Switch>
   </>
 )

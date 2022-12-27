@@ -10,6 +10,8 @@ import SearchResultItem from '../SearchResultItem'
 
 import StateDetailsItem from '../StateDetailsItem'
 
+import Footer from '../Footer'
+
 import './index.css'
 
 const statesList = [
@@ -333,7 +335,7 @@ class Home extends Component {
 
   renderCountryWideStats = () => {
     const {countryWideList} = this.state
-    console.log(countryWideList)
+
     const countryWideConfirmedArray = countryWideList.map(
       eachState => eachState.confirmed,
     )
@@ -363,7 +365,7 @@ class Home extends Component {
     return (
       <div className="countrywide-stats-container">
         <div
-          className="countrywide-stat-card red-card"
+          className="countrywide-stat-card red-country-card"
           testid="countryWideConfirmedCases"
         >
           <p className="countrywide-stat-card-title">Confirmed</p>
@@ -375,7 +377,7 @@ class Home extends Component {
           <p className="countrywide-stat-card-count">{totalConfirmedCases}</p>
         </div>
         <div
-          className="countrywide-stat-card blue-card"
+          className="countrywide-stat-card blue-country-card"
           testid="countryWideActiveCases"
         >
           <p className="countrywide-stat-card-title">Active</p>
@@ -387,7 +389,7 @@ class Home extends Component {
           <p className="countrywide-stat-card-count">{totalActiveCases}</p>
         </div>
         <div
-          className="countrywide-stat-card green-card"
+          className="countrywide-stat-card green-country-card"
           testid="countryWideRecoveredCases"
         >
           <p className="countrywide-stat-card-title">Recovered</p>
@@ -400,7 +402,7 @@ class Home extends Component {
         </div>
 
         <div
-          className="countrywide-stat-card ash-card"
+          className="countrywide-stat-card ash-country-card"
           testid="countryWideDeceasedCases"
         >
           <p className="countrywide-stat-card-title">Deceased</p>
@@ -484,6 +486,7 @@ class Home extends Component {
         <div className="app-bg-container">
           {this.renderSearchContainer()}
           {this.renderPageBasedOnApiStatus()}
+          <Footer />
         </div>
       </>
     )

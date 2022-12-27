@@ -133,19 +133,19 @@
   }
 }
 
-.red-card {
+.red-country-card {
   color: #ff073a;
 }
 
-.blue-card {
+.blue-country-card {
   color: #007bff;
 }
 
-.green-card {
+.green-country-card {
   color: #28a745;
 }
 
-.ash-card {
+.ash-country-card {
   color: #6c757d;
 }
 
@@ -246,6 +246,12 @@
   margin: 0px;
 }
 
+@media screen and (min-width: 768px) {
+  .state-and-ut-title {
+    font-size: 18px;
+  }
+}
+
 .sort-btn {
   border: none;
   outline: none;
@@ -276,6 +282,12 @@
   color: #f8fafc;
   margin: 0px;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  .other-header-title {
+    font-size: 18px;
+  }
 }
 
 .all-states-data-list {
