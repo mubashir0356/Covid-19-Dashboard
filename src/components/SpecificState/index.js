@@ -1,5 +1,7 @@
 import {Component} from 'react'
 
+import Header from '../Header'
+
 import './index.css'
 
 const statesList = [
@@ -169,6 +171,7 @@ class SpecificState extends Component {
     timelinesApiStatus: apiStatusConstants.initial,
     cardStatus: cardStatusConstants.confirmed,
     stateCovidData: [],
+    timeLineData: [],
   }
 
   componentDidMount() {
@@ -176,12 +179,71 @@ class SpecificState extends Component {
       {stateDetailsApiStatus: apiStatusConstants.inProgress},
       this.getStateDetails,
     )
+    this.setState(
+      {timelinesApiStatus: apiStatusConstants.inProgress},
+      this.getTimelineDetails,
+    )
   }
 
-  getStateDetails = async () => {}
+  getStateDetails = async () => {
+    const {match} = this.props
+    const {params} = match
+    const {stateCode} = params
+
+    const url = 'https://apis.ccbp.in/covid19-state-wise-data'
+    const response = await fetch(url)
+    if (response.ok) {
+      const fetchedData = await response.json()
+      const updatedData = {
+        confirmed: fetchedData[stateCode].total.confirmed,
+        deceased: fetchedData[stateCode].total.deceased,
+        recovered: fetchedData[stateCode].total.recovered,
+        active:
+          fetchedData[stateCode].total.confirmed -
+          (fetchedData[stateCode].total.recovered +
+            fetchedData[stateCode].total.deceased),
+        tested: fetchedData[stateCode].total.tested,
+        population: fetchedData[stateCode].meta.population,
+        lastUpdated: fetchedData[stateCode].meta.last_updated,
+        id: stateCode,
+        stateName: statesList.find(
+          eachState => eachState.state_code === stateCode,
+        ).state_name,
+        districts: fetchedData[stateCode].districts,
+      }
+      this.setState({
+        stateCovidData: updatedData,
+        stateDetailsApiStatus: apiStatusConstants.success,
+      })
+    }
+  }
+
+  getTimelineDetails = async () => {
+    const {match} = this.props
+    const {params} = match
+    const {stateCode} = params
+    const url = `https://apis.ccbp.in/covid19-timelines-data/${stateCode}`
+    const response = await fetch(url)
+    if (response.ok) {
+      const fetchedData = await response.json()
+      const updatedData = fetchedData[stateCode].dates
+      console.log(updatedData)
+      this.setState({
+        timeLineData: updatedData,
+        timelinesApiStatus: apiStatusConstants.success,
+      })
+    }
+  }
 
   render() {
-    return <div>uasdb</div>
+    return (
+      <>
+        <div className="state-specific-container">
+          <Header />
+          {this.renderStateContent()}
+        </div>
+      </>
+    )
   }
 }
 
