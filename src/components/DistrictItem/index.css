@@ -1,0 +1,59 @@
+.district-item {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  margin: 0px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 576px) {
+  .district-item {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .district-item {
+    width: 25%;
+  }
+}
+
+.district-item-value {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+  color: #94a3b8;
+  margin: 0px;
+  margin-right: 12px;
+  width: 22%;
+}
+
+@media screen and (min-width: 768px) {
+  .district-item-value {
+    font-size: 24px;
+    line-height: 28px;
+    margin-right: 18px;
+    width: 28%;
+  }
+}
+
+.district-item-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #94a3b8;
+  margin: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .district-item-text {
+    font-size: 16px;
+    line-height: 20px;
+    margin-right: 22px;
+  }
+}

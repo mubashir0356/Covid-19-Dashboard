@@ -5,6 +5,10 @@ import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
 
+import DistrictItem from '../DistrictItem'
+
+import Footer from '../Footer'
+
 import './index.css'
 
 const statesList = [
@@ -273,6 +277,92 @@ class SpecificState extends Component {
     return formattedDate
   }
 
+  onStatCardClick = cardState => {
+    this.setState({cardStatus: cardState})
+  }
+
+  obtainDescendingOrder = unSortedDistricts => {
+    const sortedDistricts = unSortedDistricts.sort((a, b) => {
+      const firstDist = a.value
+      const secondDist = b.value
+      if (firstDist < secondDist) {
+        return 1
+      }
+      if (firstDist > secondDist) {
+        return -1
+      }
+      return 0
+    })
+
+    return sortedDistricts
+  }
+
+  getDistrictsBasedOnCardStatus = () => {
+    const {stateCovidData, cardStatus} = this.state
+    const {districts} = stateCovidData
+    const updatedDistricts = []
+    const allDistrictKeyNames = Object.keys(districts)
+    switch (cardStatus) {
+      case cardStatusConstants.confirmed:
+        allDistrictKeyNames.forEach(eachDist => {
+          updatedDistricts.push({
+            distName: eachDist,
+            value:
+              districts[eachDist].total.confirmed === undefined
+                ? 0
+                : districts[eachDist].total.confirmed,
+          })
+        })
+
+        return this.obtainDescendingOrder(updatedDistricts)
+
+      case cardStatusConstants.deceased:
+        allDistrictKeyNames.forEach(eachDist => {
+          updatedDistricts.push({
+            distName: eachDist,
+            value:
+              districts[eachDist].total.deceased === undefined
+                ? 0
+                : districts[eachDist].total.deceased,
+          })
+        })
+
+        return this.obtainDescendingOrder(updatedDistricts)
+
+      case cardStatusConstants.recovered:
+        allDistrictKeyNames.forEach(eachDist => {
+          updatedDistricts.push({
+            distName: eachDist,
+            value:
+              districts[eachDist].total.recovered === undefined
+                ? 0
+                : districts[eachDist].total.recovered,
+          })
+        })
+
+        return this.obtainDescendingOrder(updatedDistricts)
+
+      default:
+        allDistrictKeyNames.forEach(eachDist => {
+          updatedDistricts.push({
+            distName: eachDist,
+            value:
+              districts[eachDist].total.confirmed === undefined
+                ? 0
+                : districts[eachDist].total.confirmed -
+                  ((districts[eachDist].total.recovered === undefined
+                    ? 0
+                    : districts[eachDist].total.recovered) +
+                    (districts[eachDist].total.deceased === undefined
+                      ? 0
+                      : districts[eachDist].total.deceased)),
+          })
+        })
+
+        return this.obtainDescendingOrder(updatedDistricts)
+    }
+  }
+
   renderStateLoader = () => (
     <div className="state-loader-container" testid="stateDetailsLoader">
       <Loader type="TailSpin" color="#007BFF" width={50} height={50} />
@@ -308,6 +398,25 @@ class SpecificState extends Component {
       cardStatus === cardStatusConstants.deceased
         ? 'stat-card-item deceased-card'
         : 'stat-card-item'
+
+    let topDistrictsHeadingClassName
+
+    switch (cardStatus) {
+      case cardStatusConstants.confirmed:
+        topDistrictsHeadingClassName = 'confirm-heading'
+        break
+      case cardStatusConstants.active:
+        topDistrictsHeadingClassName = 'active-heading'
+        break
+      case cardStatusConstants.recovered:
+        topDistrictsHeadingClassName = 'recovered-heading'
+        break
+      default:
+        topDistrictsHeadingClassName = 'deceased-heading'
+        break
+    }
+
+    const districtsList = this.getDistrictsBasedOnCardStatus()
 
     return (
       <div className="specific-state-card-bg-container">
@@ -391,6 +500,14 @@ class SpecificState extends Component {
             </button>
           </li>
         </ul>
+        <h1 className={`top-districts-heading ${topDistrictsHeadingClassName}`}>
+          Top Districts
+        </h1>
+        <ul className="top-districts-list" testid="topDistrictsUnorderedList">
+          {districtsList.map(eachDist => (
+            <DistrictItem key={eachDist.distName} districtDetails={eachDist} />
+          ))}
+        </ul>
       </div>
     )
   }
@@ -405,12 +522,30 @@ class SpecificState extends Component {
     }
   }
 
+  renderTimelineLoader = () => (
+    <div className="state-loader-container" testid="timelinesDataLoader">
+      <Loader type="TailSpin" color="#007BFF" width={50} height={50} />
+    </div>
+  )
+
+  renderTimeLineApiContent = () => {
+    const {timelinesApiStatus} = this.state
+    switch (timelinesApiStatus) {
+      default:
+        return this.renderTimelineLoader()
+    }
+  }
+
   render() {
     return (
       <>
         <div className="state-specific-container">
           <Header />
           {this.renderStateApiContent()}
+          {this.renderTimeLineApiContent()}
+          <div className="footer-container">
+            <Footer />
+          </div>
         </div>
       </>
     )
