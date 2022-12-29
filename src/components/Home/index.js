@@ -400,7 +400,6 @@ class Home extends Component {
           />
           <p className="countrywide-stat-card-count">{totalRecoveredCases}</p>
         </div>
-
         <div
           className="countrywide-stat-card ash-country-card"
           testid="countryWideDeceasedCases"

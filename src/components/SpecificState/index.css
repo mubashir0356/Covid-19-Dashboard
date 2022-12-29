@@ -6,3 +6,288 @@
   width: 100%;
   min-height: 100vh;
 }
+
+.state-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+  width: 100%;
+  background-color: #161625;
+}
+
+.specific-state-card-bg-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0px;
+  background-color: #161625;
+}
+
+.state-details-container {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  .state-details-container {
+    width: 80%;
+  }
+}
+
+.state-name-container {
+  margin: 0px;
+  padding: 0px;
+}
+
+.state-name-heading {
+  background: rgba(2, 132, 199, 0.16);
+  border-radius: 16px;
+  text-align: center;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  color: #0ea5e9;
+  padding: 22px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-name-heading {
+    border-radius: 32px;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 48px;
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+.tested-count-container {
+  padding: 0px;
+  margin: 0px;
+}
+
+.tested-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #94a3b8;
+  text-align: right;
+}
+
+@media screen and (min-width: 768px) {
+  .tested-title {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.tested-count {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: right;
+  color: #94a3b8;
+}
+
+@media screen and (min-width: 768px) {
+  .tested-count {
+    font-size: 24px;
+  }
+}
+
+.last-update-date-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+  color: #cbd5e1;
+  width: 90%;
+  margin: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .last-update-date-text {
+    font-size: 18px;
+    line-height: 24px;
+    width: 80%;
+  }
+}
+
+.state-wide-stats-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  list-style-type: none;
+  width: 90%;
+  margin: 0px;
+  padding: 0px;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-wide-stats-container {
+    width: 80%;
+  }
+}
+
+.stat-card-item {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 25px;
+  border-radius: 8px;
+  padding: 0px;
+}
+
+@media screen and (min-width: 526px) {
+  .stat-card-item {
+    width: 50%;
+    border-radius: 12px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .stat-card-item {
+    width: 25%;
+  }
+}
+
+.confirmed-card {
+  background: #331427;
+}
+
+.active-card {
+  background: #132240;
+}
+
+.recovered-card {
+  background: #182829;
+}
+
+.deceased-card {
+  background: #212230;
+}
+
+.confirmed-card-btn {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  color: #ff073a;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 26px;
+}
+
+.active-card-btn {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  color: #007bff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 26px;
+}
+
+.recovered-card-btn {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  color: #28a745;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 26px;
+}
+
+.deceased-card-btn {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  color: #6c757d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 26px;
+}
+
+.state-stat-card-text {
+  font-size: 12px;
+  line-height: 16px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-stat-card-text {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.state-stat-card-count {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-stat-card-count {
+    font-size: 24px;
+    line-height: 24px;
+  }
+}
+
+.state-stat-card-image {
+  width: 24px;
+  height: 24px;
+}
+
+@media screen and (min-width: 768px) {
+  .state-stat-card-image {
+    width: 38px;
+    height: 38px;
+  }
+}

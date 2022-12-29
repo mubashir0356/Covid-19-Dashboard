@@ -1,4 +1,7 @@
+/* eslint-disable react/no-unknown-property */
 import {Component} from 'react'
+
+import Loader from 'react-loader-spinner'
 
 import Header from '../Header'
 
@@ -211,10 +214,13 @@ class SpecificState extends Component {
         ).state_name,
         districts: fetchedData[stateCode].districts,
       }
+      console.log('districts:', updatedData.districts)
       this.setState({
         stateCovidData: updatedData,
         stateDetailsApiStatus: apiStatusConstants.success,
       })
+    } else {
+      this.setState({stateDetailsApiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -232,6 +238,170 @@ class SpecificState extends Component {
         timeLineData: updatedData,
         timelinesApiStatus: apiStatusConstants.success,
       })
+    } else {
+      this.setState({timelinesApiStatus: apiStatusConstants.failure})
+    }
+  }
+
+  getLastUpdatedDate = () => {
+    const {stateCovidData} = this.state
+    const {lastUpdated} = stateCovidData
+
+    const lastUpdatedDateObj = new Date(lastUpdated)
+    console.log(lastUpdatedDateObj)
+    const lastUpdatedYear = lastUpdatedDateObj.getFullYear()
+    const lastUpdatedMonth = lastUpdatedDateObj
+      .toLocaleString('default', {
+        month: 'long',
+      })
+      .toLowerCase()
+    const lastUpdatedDate = lastUpdatedDateObj.getDate()
+    let subScript
+    if (lastUpdatedDate === 1) {
+      subScript = 'st'
+    } else if (lastUpdatedDate === 2) {
+      subScript = 'nd'
+    } else if (lastUpdatedDate === 3) {
+      subScript = 'rd'
+    } else {
+      subScript = 'th'
+    }
+    console.log(typeof lastUpdatedDate)
+
+    const formattedDate = `${lastUpdatedMonth} ${lastUpdatedDate}${subScript} ${lastUpdatedYear}`
+    console.log(formattedDate)
+    return formattedDate
+  }
+
+  renderStateLoader = () => (
+    <div className="state-loader-container" testid="stateDetailsLoader">
+      <Loader type="TailSpin" color="#007BFF" width={50} height={50} />
+    </div>
+  )
+
+  renderStateDetails = () => {
+    const {stateCovidData, cardStatus} = this.state
+    const {
+      stateName,
+      tested,
+      confirmed,
+      deceased,
+      recovered,
+      active,
+    } = stateCovidData
+
+    const lastUpdatedDate = this.getLastUpdatedDate()
+
+    const confirmedCardClassName =
+      cardStatus === cardStatusConstants.confirmed
+        ? 'stat-card-item confirmed-card'
+        : 'stat-card-item'
+    const activeCardClassName =
+      cardStatus === cardStatusConstants.active
+        ? 'stat-card-item active-card'
+        : 'stat-card-item'
+    const recoveredCardClassName =
+      cardStatus === cardStatusConstants.recovered
+        ? 'stat-card-item recovered-card'
+        : 'stat-card-item'
+    const deceasedCardClassName =
+      cardStatus === cardStatusConstants.deceased
+        ? 'stat-card-item deceased-card'
+        : 'stat-card-item'
+
+    return (
+      <div className="specific-state-card-bg-container">
+        <div className="state-details-container">
+          <div className="state-name-container">
+            <h1 className="state-name-heading">{stateName}</h1>
+          </div>
+          <div className="tested-count-container">
+            <p className="tested-title">Tested</p>
+            <p className="tested-count">{tested}</p>
+          </div>
+        </div>
+        <p className="last-update-date-text">{`Last update on ${lastUpdatedDate}.`}</p>
+        <ul className="state-wide-stats-container">
+          <li className={confirmedCardClassName}>
+            <button
+              type="button"
+              testid="stateSpecificConfirmedCasesContainer"
+              className="confirmed-card-btn"
+              onClick={() =>
+                this.onStatCardClick(cardStatusConstants.confirmed)
+              }
+            >
+              <p className="state-stat-card-text">Confirmed</p>
+              <img
+                src="https://res.cloudinary.com/dkxj0xjra/image/upload/v1672075627/Covid%20Dashboard/Confirmed_uqfikx.png"
+                className="state-stat-card-image"
+                alt="state specific confirmed cases pic"
+              />
+              <p className="state-stat-card-count">{confirmed}</p>
+            </button>
+          </li>
+          <li className={activeCardClassName}>
+            <button
+              type="button"
+              testid="stateSpecificActiveCasesContainer"
+              className="active-card-btn"
+              onClick={() => this.onStatCardClick(cardStatusConstants.active)}
+            >
+              <p className="state-stat-card-text">Active</p>
+              <img
+                src="https://res.cloudinary.com/dkxj0xjra/image/upload/v1672075627/Covid%20Dashboard/Active_cmlwhz.png"
+                className="state-stat-card-image"
+                alt="state specific active cases pic"
+              />
+              <p className="state-stat-card-count">{active}</p>
+            </button>
+          </li>
+          <li className={recoveredCardClassName}>
+            <button
+              type="button"
+              testid="stateSpecificRecoveredCasesContainer"
+              className="recovered-card-btn"
+              onClick={() =>
+                this.onStatCardClick(cardStatusConstants.recovered)
+              }
+            >
+              <p className="state-stat-card-text">Recovered</p>
+              <img
+                src="https://res.cloudinary.com/dkxj0xjra/image/upload/v1672075627/Covid%20Dashboard/Recovered_joeqa3.png"
+                className="state-stat-card-image"
+                alt="state specific recovered cases pic"
+              />
+              <p className="state-stat-card-count">{recovered}</p>
+            </button>
+          </li>
+          <li className={deceasedCardClassName}>
+            <button
+              type="button"
+              testid="stateSpecificDeceasedCasesContainer"
+              className="deceased-card-btn"
+              onClick={() => this.onStatCardClick(cardStatusConstants.deceased)}
+            >
+              <p className="state-stat-card-text">Deceased</p>
+              <img
+                src="https://res.cloudinary.com/dkxj0xjra/image/upload/v1672075627/Covid%20Dashboard/Deceased_l5ypnr.png"
+                className="state-stat-card-image"
+                alt="state specific deceased cases pic"
+              />
+              <p className="state-stat-card-count">{deceased}</p>
+            </button>
+          </li>
+        </ul>
+      </div>
+    )
+  }
+
+  renderStateApiContent = () => {
+    const {stateDetailsApiStatus} = this.state
+    switch (stateDetailsApiStatus) {
+      case apiStatusConstants.success:
+        return this.renderStateDetails()
+      default:
+        return this.renderStateLoader()
     }
   }
 
@@ -240,7 +410,7 @@ class SpecificState extends Component {
       <>
         <div className="state-specific-container">
           <Header />
-          {this.renderStateContent()}
+          {this.renderStateApiContent()}
         </div>
       </>
     )
