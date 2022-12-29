@@ -1,0 +1,76 @@
+.timeline-loader-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+  width: 100%;
+  background-color: #161625;
+}
+
+.charts-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.bar-chart-container {
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chart-container {
+  width: 100%;
+  overflow: auto;
+}
+
+.charts-title {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 32px;
+  color: #cbd5e1;
+  width: 100%;
+  text-align: center;
+  margin: 0px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .charts-title {
+    font-size: 32px;
+    line-height: 48px;
+    text-align: left;
+  }
+}
+
+.line-chart-container {
+  border-radius: 12px;
+  margin-bottom: 32px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+.confirm-bg {
+  background: #331427;
+}
+
+.active-bg {
+  background: #132240;
+}
+
+.recovered-bg {
+  background: #182829;
+}
+
+.deceased-bg {
+  background: #1c1c2b;
+}
+
+.tested-bg {
+  background: #230f41;
+}

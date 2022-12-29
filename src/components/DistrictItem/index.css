@@ -7,7 +7,7 @@
   margin-bottom: 20px;
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 540px) {
   .district-item {
     width: 50%;
   }

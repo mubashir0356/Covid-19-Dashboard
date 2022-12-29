@@ -7,6 +7,8 @@ import Header from '../Header'
 
 import DistrictItem from '../DistrictItem'
 
+import Charts from '../Charts'
+
 import Footer from '../Footer'
 
 import './index.css'
@@ -175,20 +177,14 @@ const cardStatusConstants = {
 class SpecificState extends Component {
   state = {
     stateDetailsApiStatus: apiStatusConstants.initial,
-    timelinesApiStatus: apiStatusConstants.initial,
     cardStatus: cardStatusConstants.confirmed,
     stateCovidData: [],
-    timeLineData: [],
   }
 
   componentDidMount() {
     this.setState(
       {stateDetailsApiStatus: apiStatusConstants.inProgress},
       this.getStateDetails,
-    )
-    this.setState(
-      {timelinesApiStatus: apiStatusConstants.inProgress},
-      this.getTimelineDetails,
     )
   }
 
@@ -225,25 +221,6 @@ class SpecificState extends Component {
       })
     } else {
       this.setState({stateDetailsApiStatus: apiStatusConstants.failure})
-    }
-  }
-
-  getTimelineDetails = async () => {
-    const {match} = this.props
-    const {params} = match
-    const {stateCode} = params
-    const url = `https://apis.ccbp.in/covid19-timelines-data/${stateCode}`
-    const response = await fetch(url)
-    if (response.ok) {
-      const fetchedData = await response.json()
-      const updatedData = fetchedData[stateCode].dates
-      console.log(updatedData)
-      this.setState({
-        timeLineData: updatedData,
-        timelinesApiStatus: apiStatusConstants.success,
-      })
-    } else {
-      this.setState({timelinesApiStatus: apiStatusConstants.failure})
     }
   }
 
@@ -378,6 +355,7 @@ class SpecificState extends Component {
       deceased,
       recovered,
       active,
+      id,
     } = stateCovidData
 
     const lastUpdatedDate = this.getLastUpdatedDate()
@@ -508,6 +486,9 @@ class SpecificState extends Component {
             <DistrictItem key={eachDist.distName} districtDetails={eachDist} />
           ))}
         </ul>
+        <div className="graphs-container">
+          <Charts cardStatus={cardStatus} stateId={id} />
+        </div>
       </div>
     )
   }
@@ -522,28 +503,13 @@ class SpecificState extends Component {
     }
   }
 
-  renderTimelineLoader = () => (
-    <div className="state-loader-container" testid="timelinesDataLoader">
-      <Loader type="TailSpin" color="#007BFF" width={50} height={50} />
-    </div>
-  )
-
-  renderTimeLineApiContent = () => {
-    const {timelinesApiStatus} = this.state
-    switch (timelinesApiStatus) {
-      default:
-        return this.renderTimelineLoader()
-    }
-  }
-
   render() {
     return (
       <>
         <div className="state-specific-container">
           <Header />
           {this.renderStateApiContent()}
-          {this.renderTimeLineApiContent()}
-          <div className="footer-container">
+          <div className="footer-container-1">
             <Footer />
           </div>
         </div>
