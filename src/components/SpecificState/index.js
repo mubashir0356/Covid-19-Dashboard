@@ -486,7 +486,7 @@ class SpecificState extends Component {
             <DistrictItem key={eachDist.distName} districtDetails={eachDist} />
           ))}
         </ul>
-        <div className="graphs-container">
+        <div className="graphs-container" testid="lineChartsContainer">
           <Charts cardStatus={cardStatus} stateId={id} />
         </div>
       </div>

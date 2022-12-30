@@ -274,12 +274,9 @@ class Home extends Component {
     const {countryWideList} = this.state
 
     return (
-      <div className="all-states-data-table">
+      <div className="all-states-data-table" testid="stateWiseCovidDataTable">
         <div className="all-states-data-table-header">
-          <div
-            className="state-and-ut-title-container"
-            testid="stateWiseCovidDataTable"
-          >
+          <div className="state-and-ut-title-container">
             <p className="state-and-ut-title">States/UT</p>
             <button
               type="button"

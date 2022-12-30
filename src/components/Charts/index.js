@@ -175,7 +175,7 @@ class Charts extends Component {
   }
 
   renderCharts = () => (
-    <div testid="lineChartsContainer" className="charts-container">
+    <div className="charts-container">
       <div className="bar-chart-container">{this.renderBarChart()}</div>
       <h1 className="charts-title">Spread Trends</h1>
       <div className="line-chart-container confirm-bg">

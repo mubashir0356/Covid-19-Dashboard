@@ -38,6 +38,7 @@ class About extends Component {
 
   renderAboutRouteContent = () => {
     const {faqList} = this.state
+    console.log('faq', faqList)
 
     return (
       <div className="about-content-bg-container">
