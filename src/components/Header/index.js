@@ -21,6 +21,8 @@ class Header extends Component {
     const {pathname} = location
     const homeClassName = pathname === '/' ? 'highlight-nav-link' : ''
     const aboutClassName = pathname === '/about' ? 'highlight-nav-link' : ''
+    const vaccinationClassName =
+      pathname === '/vaccination' ? 'highlight-nav-link' : ''
     return (
       <>
         <nav className="navbar-container">
@@ -34,6 +36,13 @@ class Header extends Component {
             <Link to="/" className="link">
               <li className={`nav-link-item desktop-nav-link ${homeClassName}`}>
                 Home
+              </li>
+            </Link>
+            <Link to="/vaccination" className="link">
+              <li
+                className={`nav-link-item desktop-nav-link ${vaccinationClassName}`}
+              >
+                Vaccination
               </li>
             </Link>
             <Link to="/about" className="link">
@@ -61,6 +70,13 @@ class Header extends Component {
             <Link to="/" className="link">
               <li className={`nav-link-item mobile-nav-link ${homeClassName}`}>
                 Home
+              </li>
+            </Link>
+            <Link to="/vaccination" className="link">
+              <li
+                className={`nav-link-item mobile-nav-link ${vaccinationClassName}`}
+              >
+                Vaccination
               </li>
             </Link>
             <Link to="/about" className="link">

@@ -8,6 +8,8 @@ import SpecificState from './components/SpecificState'
 
 import NotFound from './components/NotFound'
 
+import Vaccination from './components/Vaccination'
+
 import './App.css'
 
 const App = () => (
@@ -16,7 +18,8 @@ const App = () => (
       <Route exact path="/" component={Home} />
       <Route exact path="/about" component={About} />
       <Route exact path="/state/:stateCode" component={SpecificState} />
-      <Route component={NotFound} />
+      <Route exact path="/vaccination" component={Vaccination} />
+      <Route path="/not-found" component={NotFound} />
       <Redirect to="/not-found" />
     </Switch>
   </>
