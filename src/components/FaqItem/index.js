@@ -6,7 +6,7 @@ const FaqItem = props => {
 
   return (
     <li className="faq-item">
-      <p className="question">{question}</p>
+      <p className="question">{`${qno}. ${question}`}</p>
       <p className="answer ">{answer}</p>
     </li>
   )

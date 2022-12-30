@@ -31,7 +31,7 @@ class About extends Component {
     if (response.ok) {
       const fetchedData = await response.json()
       const {faq} = fetchedData
-      console.log(faq)
+      console.log(fetchedData)
       this.setState({apiStatus: apiStatusConstants.success, faqList: faq})
     }
   }

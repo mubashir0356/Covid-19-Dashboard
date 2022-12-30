@@ -17,146 +17,218 @@ const statesList = [
   {
     state_code: 'AN',
     state_name: 'Andaman and Nicobar Islands',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410530/andaman_mhysom.png',
   },
   {
     state_code: 'AP',
     state_name: 'Andhra Pradesh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672412401/AP_w1oc4e.png',
   },
   {
     state_code: 'AR',
     state_name: 'Arunachal Pradesh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410254/arunachal_pradesh_bw8ho9.png',
   },
   {
     state_code: 'AS',
     state_name: 'Assam',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410254/Assam_a4blbs.png',
   },
   {
     state_code: 'BR',
     state_name: 'Bihar',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410254/bihar_kybwc3.png',
   },
   {
     state_code: 'CH',
     state_name: 'Chandigarh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410530/chandigarh_zr4fuo.png',
   },
   {
     state_code: 'CT',
     state_name: 'Chhattisgarh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410254/chattisgarh_soz1ch.png',
   },
   {
     state_code: 'DN',
     state_name: 'Dadra and Nagar Haveli and Daman and Diu',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410530/daman_and_diu_d0pdbs.png',
   },
   {
     state_code: 'DL',
     state_name: 'Delhi',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410530/Delhi_n0z8q6.png',
   },
   {
     state_code: 'GA',
     state_name: 'Goa',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410254/goa_uygnvl.png',
   },
   {
     state_code: 'GJ',
     state_name: 'Gujarat',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/Gujrat_dxrbap.png',
   },
   {
     state_code: 'HR',
     state_name: 'Haryana',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/Haryana_c3jwlp.png',
   },
   {
     state_code: 'HP',
     state_name: 'Himachal Pradesh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/HP_kjbckm.png',
   },
   {
     state_code: 'JK',
     state_name: 'Jammu and Kashmir',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/JK_cokxfa.png',
   },
   {
     state_code: 'JH',
     state_name: 'Jharkhand',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/jharkand_rmbukv.png',
   },
   {
     state_code: 'KA',
     state_name: 'Karnataka',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/jharkand_rmbukv.png',
   },
   {
     state_code: 'KL',
     state_name: 'Kerala',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/kerala_u6rtqe.png',
   },
   {
     state_code: 'LA',
     state_name: 'Ladakh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410530/Ladakh_spcndt.png',
   },
   {
     state_code: 'LD',
     state_name: 'Lakshadweep',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410530/lakshadweep_bafokl.png',
   },
   {
     state_code: 'MH',
     state_name: 'Maharashtra',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/maharashtra_fcq8aw.png',
   },
   {
     state_code: 'MP',
     state_name: 'Madhya Pradesh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/MP_fa9prz.png',
   },
   {
     state_code: 'MN',
     state_name: 'Manipur',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/manipur_lxindr.png',
   },
   {
     state_code: 'ML',
     state_name: 'Meghalaya',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/meghalaya_ygne3l.png',
   },
   {
     state_code: 'MZ',
     state_name: 'Mizoram',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410255/mizoram_zotja6.png',
   },
   {
     state_code: 'NL',
     state_name: 'Nagaland',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/nagaland_lip8mi.png',
   },
   {
     state_code: 'OR',
     state_name: 'Odisha',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/nagaland_lip8mi.png',
   },
   {
     state_code: 'PY',
     state_name: 'Puducherry',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410531/poducherry_xe0rp9.png',
   },
   {
     state_code: 'PB',
     state_name: 'Punjab',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/punjab_qra2ul.png',
   },
   {
     state_code: 'RJ',
     state_name: 'Rajasthan',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/rajastan_cd1owi.png',
   },
   {
     state_code: 'SK',
     state_name: 'Sikkim',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/Sikkim_ohg4ty.png',
   },
   {
     state_code: 'TN',
     state_name: 'Tamil Nadu',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410256/tamilnadu_lfd9fm.png',
   },
   {
     state_code: 'TG',
     state_name: 'Telangana',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410257/telangana_bv5bke.png',
   },
   {
     state_code: 'TR',
     state_name: 'Tripura',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410257/tripura_um8629.png',
   },
   {
     state_code: 'UP',
     state_name: 'Uttar Pradesh',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410257/up_nfmlxh.png',
   },
   {
     state_code: 'UT',
     state_name: 'Uttarakhand',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410257/uttrahkhand_tr0yku.png',
   },
   {
     state_code: 'WB',
     state_name: 'West Bengal',
+    imageUrl:
+      'https://res.cloudinary.com/dkxj0xjra/image/upload/v1672410257/west_bengal_c2jo9z.png',
   },
 ]
 
@@ -213,6 +285,9 @@ class SpecificState extends Component {
           eachState => eachState.state_code === stateCode,
         ).state_name,
         districts: fetchedData[stateCode].districts,
+        stateImgUrl: statesList.find(
+          eachState => eachState.state_code === stateCode,
+        ).imageUrl,
       }
       console.log('districts:', updatedData.districts)
       this.setState({
@@ -356,6 +431,8 @@ class SpecificState extends Component {
       recovered,
       active,
       id,
+      stateImgUrl,
+      population,
     } = stateCovidData
 
     const lastUpdatedDate = this.getLastUpdatedDate()
@@ -397,7 +474,10 @@ class SpecificState extends Component {
     const districtsList = this.getDistrictsBasedOnCardStatus()
 
     return (
-      <div className="specific-state-card-bg-container">
+      <div
+        className="specific-state-card-bg-container"
+        testid="lineChartsContainer"
+      >
         <div className="state-details-container">
           <div className="state-name-container">
             <h1 className="state-name-heading">{stateName}</h1>
@@ -478,6 +558,22 @@ class SpecificState extends Component {
             </button>
           </li>
         </ul>
+        <div className="map-container">
+          <img src={stateImgUrl} alt={stateName} className="map-image" />
+          <div className="ncp-report-container">
+            <p className="ncp-report-title">NCP report</p>
+            <div className="ncp-content-container">
+              <div className="ncp-sub-container">
+                <p className="ncp-heading">Population</p>
+                <p className="ncp-count">{population}</p>
+              </div>
+              <div className="ncp-sub-container">
+                <p className="ncp-heading">Tested</p>
+                <p className="ncp-count">{tested}</p>
+              </div>
+            </div>
+          </div>
+        </div>
         <h1 className={`top-districts-heading ${topDistrictsHeadingClassName}`}>
           Top Districts
         </h1>
@@ -486,7 +582,7 @@ class SpecificState extends Component {
             <DistrictItem key={eachDist.distName} districtDetails={eachDist} />
           ))}
         </ul>
-        <div className="graphs-container" testid="lineChartsContainer">
+        <div className="graphs-container">
           <Charts cardStatus={cardStatus} stateId={id} />
         </div>
       </div>
