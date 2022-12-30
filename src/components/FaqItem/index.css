@@ -1,0 +1,38 @@
+.faq-item {
+  margin-bottom: 20px;
+}
+
+.question {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #94a3b8;
+  margin: 0px;
+  margin-bottom: 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .question {
+    font-size: 16px;
+    line-height: 32px;
+  }
+}
+
+.answer {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: #007bff;
+  margin: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .answer {
+    font-size: 16px;
+    line-height: 32px;
+  }
+}

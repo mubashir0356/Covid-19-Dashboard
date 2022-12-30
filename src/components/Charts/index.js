@@ -25,7 +25,7 @@ const cardStatusConstants = {
 
 class Charts extends Component {
   state = {
-    barChartData: [],
+    chartData: [],
     isLoading: true,
   }
 
@@ -76,14 +76,14 @@ class Charts extends Component {
       console.log('i', updatedData)
       this.setState({
         isLoading: false,
-        barChartData: updatedData,
+        chartData: updatedData,
       })
     }
   }
 
   renderBarChart = () => {
     const {cardStatus} = this.props
-    const {barChartData} = this.state
+    const {chartData} = this.state
     const barChartType = cardStatus.toLowerCase()
     console.log(barChartType)
 
@@ -104,9 +104,7 @@ class Charts extends Component {
         break
     }
 
-    const tenDaysData = barChartData.slice(
-      Math.max(barChartData.length - 10, 0),
-    )
+    const tenDaysData = chartData.slice(Math.max(chartData.length - 10, 0))
     console.log('m', tenDaysData)
 
     return (
@@ -138,7 +136,7 @@ class Charts extends Component {
   }
 
   renderLineChart = (graphType, graphColor) => {
-    const {barChartData} = this.state
+    const {chartData} = this.state
 
     const DataFormatter = number => {
       if (number > 1000) {
@@ -152,7 +150,7 @@ class Charts extends Component {
         <LineChart
           width={1000}
           height={250}
-          data={barChartData}
+          data={chartData}
           margin={{top: 5, right: 30, left: 20, bottom: 5}}
         >
           <XAxis

@@ -1,0 +1,85 @@
+.not-found-route {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #161625;
+}
+
+.not-found-image {
+  width: 242px;
+  height: 162px;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-image {
+    width: 448px;
+    height: 300px;
+  }
+}
+
+.not-found-heading {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  text-align: center;
+  color: #e2e8f0;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-heading {
+    font-size: 32px;
+    line-height: 48px;
+  }
+}
+
+.not-found-description {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  color: #94a3b8;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-description {
+    font-size: 20px;
+    line-height: 32px;
+  }
+}
+
+.not-found-button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  align-items: center;
+  padding: 8px 16px;
+  width: 66px;
+  height: 32px;
+  background: #2563eb;
+  border-radius: 8px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #ffffff;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found-button {
+    padding: 12px 24px;
+    width: 88px;
+    height: 48px;
+    background: #2563eb;
+    border-radius: 12px;
+    font-size: 14px;
+    line-height: 24px;
+  }
+}
