@@ -571,9 +571,9 @@ class Vaccination extends Component {
             </div>
             {this.renderApiStatusContent()}
           </div>
-        </div>
-        <div className="footer-container-1">
-          <Footer />
+          <div className="footer-container-1">
+            <Footer />
+          </div>
         </div>
       </div>
     )
