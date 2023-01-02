@@ -1,6 +1,5 @@
 import {VscGithubAlt} from 'react-icons/vsc'
-import {FiInstagram} from 'react-icons/fi'
-import {FaTwitter} from 'react-icons/fa'
+import {FaLinkedin, FaTwitter} from 'react-icons/fa'
 
 import './index.css'
 
@@ -14,8 +13,20 @@ const Footer = () => (
       we stand with everyone fighting on the front lines
     </p>
     <div className="footer-icons-container">
-      <VscGithubAlt className="github-icon" />
-      <FiInstagram className="instagram-icon" />
+      <a
+        href="https://github.com/mubashir0356/Covid-19-Dashboard"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <VscGithubAlt className="github-icon" />
+      </a>
+      <a
+        href="https://www.linkedin.com/in/abdul-mubashir-fullstack-developer/"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <FaLinkedin className="instagram-icon" />
+      </a>
       <FaTwitter className="twitter-icon" />
     </div>
   </div>
