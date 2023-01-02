@@ -123,6 +123,7 @@ class Vaccination extends Component {
         ],
       }
       this.setState({apiStatus: apiStatusConstants.success, vaccinationDetails})
+      this.getStatesAndDistricts()
     }
   }
 
@@ -152,7 +153,7 @@ class Vaccination extends Component {
   onChangeState = event => {
     this.setState(
       {selectedStateId: parseInt(event.target.value)},
-      this.getStatesAndDistricts,
+      this.getVaccinationDetails,
     )
   }
 
